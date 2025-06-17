@@ -16,6 +16,7 @@ This is the backend server for the Lecture AI Notes application, built with Node
 Create a `.env` file in the root directory with the following variables:
 
 ```
+ping me for env variables we have nearly 10
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/lecture-ai-notes
 JWT_SECRET=your-secret-key
