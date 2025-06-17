@@ -1,4 +1,4 @@
-# Lecture AI Notes Backend
+#NoteNexus Backend
 
 This is the backend server for the Lecture AI Notes application, built with Node.js and Express.
 
