@@ -53,7 +53,7 @@ router.post('/forgot', async (req, res) => {
       }
     });
 
-    const resetUrl = `http://localhost:8080/password-reset/${resetToken}`;
+    const resetUrl = `https://frontend-notenexus.vercel.app/password-reset/${resetToken}`;
     
     // Send email with user statistics
     await transporter.sendMail({

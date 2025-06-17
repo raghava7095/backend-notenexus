@@ -286,7 +286,7 @@ router.get('/google/callback',
     };
 
     // Redirect back to frontend with token
-    res.redirect(`http://localhost:8080/auth/success?token=${encodeURIComponent(token)}&user=${encodeURIComponent(JSON.stringify(user))}`);
+    res.redirect(`https://frontend-notenexus.vercel.app/auth/success?token=${encodeURIComponent(token)}&user=${encodeURIComponent(JSON.stringify(user))}`);
   }
 );
 
