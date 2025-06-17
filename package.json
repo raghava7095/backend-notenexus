@@ -1,0 +1,36 @@
+{
+  "name": "lecture-ai-notes-backend",
+  "version": "1.0.0",
+  "description": "Backend for Lecture AI Notes application",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.0.4",
+    "bcryptjs": "^2.4.3",
+    "canvas": "^3.1.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.18.1",
+    "google-auth-library": "^10.1.0",
+    "googleapis": "^150.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.3",
+    "openai": "^4.24.1",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pdf-lib": "^1.17.1",
+    "youtube-transcript": "^1.2.1",
+    "youtube-transcript-api": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
