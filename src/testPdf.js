@@ -15,7 +15,7 @@ const testPdfGeneration = async () => {
       publishedAt: new Date().toISOString(),
     };
 
-    const response = await fetch('http://localhost:5000/api/pdf/generate-pdf', {
+    const response = await fetch('https://backend-notenexus.onrender.com/api/pdf/generate-pdf', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
