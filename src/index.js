@@ -35,19 +35,30 @@ app.use((req, res, next) => {
 });
 
     // Middleware
-    app.use(cors());
+    app.use(cors({
+      origin: 'https://frontend-notenexus.vercel.app',
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowedHeaders: ['Content-Type', 'Authorization']
+    }));
     app.use(express.json());
     app.use(cookieParser());
     app.use(session({
       secret: process.env.JWT_SECRET || 'your-secret-key',
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: false,
+      cookie: {
+        secure: true,
+        sameSite: 'none',
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+      }
     }));
     app.use(passport.initialize());
     app.use(passport.session());
 
     // Routes
-    app.use('/api/auth', authRoutes);
+    app.use('/api/auth', authRoutes); // Changed from /auth to /api/auth to maintain consistency
     app.use('/api/summaries', summaryRoutes);
     app.use('/api/flashcards', flashcardRoutes);
     app.use('/api/quiz', quizRoutes);
