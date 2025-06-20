@@ -11,18 +11,22 @@ const flashcardSchema = new mongoose.Schema({
     ref: 'Summary',
     required: true,
   },
-  question: {
-    type: String,
-    required: true,
-  },
-  answer: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
+  flashcards: [
+    {
+      question: {
+        type: String,
+        required: true,
+      },
+      answer: {
+        type: String,
+        required: true,
+      },
+      category: {
+        type: String,
+        required: true,
+      }
+    }
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

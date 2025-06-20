@@ -2,7 +2,8 @@ import express from 'express';
 import Summary from '../models/Summary.js';
 import authenticateToken from '../middleware/auth.js';
 import { validateYouTubeUrl, getVideoDetails, getVideoTranscript } from '../services/youtubeService.js';
-import { generateSummary, basicSummarization } from '../services/summarizationService.js';
+import { generateSummary } from '../services/geminiService.js';
+import { basicSummarization } from '../services/summarizationService.js';
 
 const router = express.Router();
 
@@ -26,15 +27,15 @@ router.post('/', authenticateToken, async (req, res) => {
       // Step 3: Get video transcript
       const transcript = await getVideoTranscript(videoId);
 
-      // Step 4: Generate summary
+      // Step 4: Generate summary using Gemini AI
       let summary;
       try {
-        // Try Hugging Face API first
+        // Try Gemini AI first
         summary = await generateSummary(transcript);
-        console.log('Successfully generated summary using Hugging Face API');
+        console.log('Successfully generated summary using Gemini AI');
       } catch (error) {
-        console.warn('Hugging Face API failed:', error);
-        // Fallback to basic summarization if Hugging Face fails
+        console.warn('Gemini AI failed:', error);
+        // Fallback to basic summarization if Gemini fails
         summary = basicSummarization(transcript);
         console.log('Generated summary using basic summarization');
       }
